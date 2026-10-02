@@ -1,6 +1,5 @@
 import json, glob, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, "/home/claude/viz")
 from content import T, GROUPS, AREAS
 from depth import D
 from _figs import FIGS
@@ -17,7 +16,7 @@ ENGINE = "\n".join(l for l in ENGINE.split("\n")
 assert "document.getElementById(x)" not in ENGINE
 
 MODS = {}
-for p in glob.glob("/home/claude/viz/mods/*.json"):
+for p in glob.glob("mods/*.json"):
     m = json.load(open(p)); MODS[m["id"]] = m
 for t in T:
     assert t["id"] in MODS, "no visualization for " + t["id"]
